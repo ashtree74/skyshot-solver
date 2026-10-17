@@ -4,6 +4,8 @@ Research on blind astrometric calibration and compact stellar-pattern retrieval 
 
 This initial publication contains two English research manuscripts, dated 11 October 2026.
 
+**Implementation source code is coming soon and will be published in this repository.**
+
 ## Research
 
 | Manuscript | PDF |
