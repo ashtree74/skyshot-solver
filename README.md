@@ -2,15 +2,19 @@
 
 **Turn a view of the stars into a live map of the sky.**
 
-[![Watch the Skyshot demo on YouTube](https://img.youtube.com/vi/lBq3xXwquJM/hqdefault.jpg)](https://youtu.be/lBq3xXwquJM)
+## [Try Skyshot live → skyshot.app](https://skyshot.app)
 
-**[Try the live web demo](https://skyshot.app)** · [Watch the video](https://youtu.be/lBq3xXwquJM) · [How it works](#how-skyshot-solves-in-milliseconds) · [What you can build](#what-you-can-build) · [Quick start](#build-and-try-without-downloading-a-catalogue) · [Research](#research)
+**Experience Skyshot in your browser with the live web demo.**
+
+[How it works](#how-skyshot-solves-in-milliseconds) · [What you can build](#what-you-can-build) · [Build the solver](#build-and-try-without-downloading-a-catalogue) · [Watch the video](https://youtu.be/lBq3xXwquJM) · [Research](#research)
 
 Skyshot is an open-source **blind plate-solving engine built for millisecond-scale sky recognition**. Give it an image or a list of detected stars, and it works out where the camera is pointing, its image scale and orientation, and a World Coordinate System (WCS) that maps pixels to the sky. It can solve without an initial position, scale, rotation or parity hint, using a local catalogue index and a CPU.
 
 Created by **Adam Jesionkiewicz**. Available here as a **Rust library and CLI**, with source code, research papers and examples you can build on.
 
 The live web demo and video demonstrate the broader Skyshot project. This repository contains the engine and developer tools; the web application and visual overlays are separate.
+
+[![Watch the Skyshot demo on YouTube](https://img.youtube.com/vi/lBq3xXwquJM/hqdefault.jpg)](https://youtu.be/lBq3xXwquJM)
 
 ## What changes when the sky can be solved in milliseconds
 
