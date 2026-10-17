@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "release_id": "skyshot-data-2026.10.17.2",
+  "verified_at_utc": "2026-10-17T19:03:45.644716+00:00",
+  "url": "https://skyshot.app/downloads/",
+  "platform": "macOS ARM64",
+  "source_revision": "7bb292337f0a68a60403bf1244f8a4764c47674c",
+  "release_sha256": "cf01190651da45fb078f3dfae853dbebb5e7ff8ede2cfe53bfc1dd6f406e43e1",
+  "fresh_source_build": true,
+  "fresh_synthetic_solve": true,
+  "public_archives_downloaded_and_sha256_verified": [
+    "skyshot-full-lgq-2026.10.17.2",
+    "skyshot-deep-lgq-2026.10.17.2",
+    "skyshot-wide-lgq-2026.10.17.2",
+    "skyshot-full-v1-2026.10.17.2",
+    "skyshot-lgq-gd-2026.10.17.2"
+  ],
+  "installed_presets": [
+    "full",
+    "full-deep",
+    "complete",
+    "handcrafted",
+    "model"
+  ],
+  "full_resumed_from_public_1MiB_partial": true,
+  "standalone_installer_zip_full_and_model": true,
+  "fresh_full_m66": {
+    "status": "solved",
+    "matches": 417,
+    "rms_px": 0.15836244222386056
+  },
+  "full_deep_explicit": {
+    "passed": true,
+    "platform": "macOS ARM64",
+    "fresh_cli": true,
+    "explicit_deep": [
+      {
+        "classification": "correct",
+        "inner_error_px": 0.2392804631594043,
+        "edge_error_px": 0.27454211918720284
+      },
+      {
+        "classification": "correct",
+        "inner_error_px": 0.11452696520675082,
+        "edge_error_px": 0.13719224824578846
+      },
+      {
+        "classification": "correct",
+        "inner_error_px": 0.19154423357210684,
+        "edge_error_px": 0.23728577462843212
+      }
+    ]
+  },
+  "http": {
+    "page_links_checked": 18,
+    "archive_lengths_manifest_hashes_and_range_bytes_verified": 5,
+    "versioned_cache_control": "public, max-age=31536000, immutable",
+    "canonical_redirect_status": 308,
+    "no_directory_listing_or_preparation_files": true,
+    "existing_app_status": 200,
+    "public_info_unchanged": true
+  },
+  "qualification": {
+    "file": "installed-qualification.json",
+    "sha256": "a8753d4ce09b0ff294a7eefb7d9ced5c9702a34853c0cef1003c70bdf99a0efc"
+  },
+  "checks": {
+    "rust_tests": 147,
+    "python_tests": 25,
+    "native_ci": "https://github.com/ashtree74/skyshot-solver/actions/runs/39060058544",
+    "native_ci_targets": [
+      "ubuntu-24.04",
+      "macos-14",
+      "windows-latest"
+    ],
+    "native_ci_conclusion": "success"
+  },
+  "canonical_source_runtime_sha256_unchanged": true,
+  "canonical_deep_uchg_retained": true,
+  "limits": [
+    "Historical local positive-image corpus; repeated fields, not an independent holdout.",
+    "89 reference WCS, one not independently confirmed; one image has no reference.",
+    "No global false-positive rate inferred; no negative-control corpus.",
+    "Wide tested only on three existing images up to 12.52 degrees; broader wide/phone coverage is unqualified.",
+    "CLI auto/deep preserve input FITS hints where present; full A/B removes hints.",
+    "No source images or private paths included in this receipt.",
+    "Real-image qualification is macOS ARM64; native Linux/Windows CI uses synthetic data.",
+    "Raw private images, references and per-image outputs are not published."
+  ]
+}

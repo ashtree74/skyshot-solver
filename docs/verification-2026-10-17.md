@@ -210,3 +210,25 @@ execution is delegated to the successor native CI run for the correction.
 The post-fix diff review found no additional issue in this boundary. See the
 [workflow history](https://github.com/ashtree74/skyshot-solver/actions/workflows/ci.yml)
 for the result associated with each exact commit.
+
+## Public Downloads acceptance
+
+Data preview `2026.10.17.2` is available at [Skyshot Downloads](https://skyshot.app/downloads/).
+A fresh public GitHub checkout built the CLI and synthetic example; all five
+public archives were downloaded, SHA256 checked and installed into new directories.
+Full is recommended and `full-deep` is optional. The small standalone installer
+ZIP also passed. Full's interrupted download resumed from a public 1 MiB partial.
+
+The fresh CLI solved M66 and three narrow DEEP fields. Requalification of the
+installed downloads on 90 real images preserved prior status/WCS results:
+full-only blind learned and handcrafted each 86 correct / 4 unsolved, complete
+CLI 89 correct / 1 unsolved with 36 FITS-hinted attempts. No incorrect accepted
+field occurred in this set; no general false-positive rate is inferred.
+
+[CI run 39060058544](https://github.com/ashtree74/skyshot-solver/actions/runs/39060058544)
+passed on native Linux x86-64, macOS ARM64 and Windows x86-64, including 147 Rust
+and 25 Python tests, release build, docs and packaged synthetic smoke tests.
+Full-sky real-image data qualification is macOS ARM64 only. Archive and installation evidence is in the
+[public verification receipt](../provenance/data-releases/2026.10.17.2/public-verification.json)
+and [installed-data qualification](../provenance/data-releases/2026.10.17.2/installed-qualification.json). Source photographs and references
+were not published.

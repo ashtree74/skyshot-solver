@@ -4,14 +4,16 @@ Decyzja zakresowa z 17 października 2026: `skyshot-solver` jest samodzielnym re
 
 ## Aktualizacja wykonania — 17 października 2026
 
-**Bieżący etap: publiczne Downloads.** Autor polecił publikację paczek na
+**Zakończony etap: publiczne Downloads.** Autor polecił publikację paczek na
 `https://skyshot.app/downloads/`, z Full learned jako zalecanym wariantem i DEEP
 opcjonalnie. Przygotowano nową wersję `2026.10.17.2`, ponownie kwalifikowaną na
 90 rzeczywistych zdjęciach, z identycznymi statusami i WCS względem sprawdzonych
 kopii. Pakiet `full-deep` nie wymusza pobrania wide. Doszedł downloader HTTPS
 z wznawianiem Range, przypiętym katalogiem, SHA256 i instalacją do nowego katalogu.
 Archiwa i wagi pozostają poza Git; w repo jest mały katalog wersji.
-Instrukcja pobrania i instalacji jest w [DATA-INSTALL.md](DATA-INSTALL.md).
+Wszystkie pięć archiwów pobrano przez publiczny HTTPS i zainstalowano od zera;
+ponowiony odbiór 90 zdjęć zachował wyniki. Instrukcja pobrania i instalacji jest w
+[DATA-INSTALL.md](DATA-INSTALL.md).
 Poniższe zapisy o braku publikacji dotyczą wcześniejszych lokalnych kandydatów.
 
 Natywny CI kodu z poprawką Windows przeszedł na macOS ARM64, Linux x86-64 i
@@ -87,10 +89,12 @@ Sumy źródłowych indeksów pozostały zgodne, a ochrona `uchg` kanonicznego DE
 pozostała włączona. Mały katalog wersji i sum jest w
 `provenance/data-candidate-2026.10.17.1.json`; binaria są ignorowane przez Git.
 
-**Pozostałe zadania techniczne:** publiczny zestaw kwalifikacyjny, hosting danych
-i natywny odbiór każdej reklamowanej platformy. Równolegle uzupełniamy jawny opis
-pochodzenia, zależności i warunków danych dla niekomercyjnego zakresu. Publikacja
-nadal wymaga osobnego polecenia; `publish = false` pozostaje.
+**Pozostałe zadania techniczne:** publiczny zestaw rzeczywistych zdjęć do
+kwalifikacji, odbiór danych full-sky na kolejnych platformach i test instalacji
+przez zewnętrznych developerów. Hosting danych jest dostępny przez Downloads;
+publiczny kod ma natywne CI na trzech systemach. Równolegle uzupełniamy jawny opis
+pochodzenia i warunków danych. Wydanie binariów CLI, publikacja w rejestrach
+oraz post na Cloudy Nights pozostają osobnymi poleceniami; `publish = false` trwa.
 
 Następne integracje po podstawach: **trwałe żądania JSONL → małe C ABI → C++ i
 .NET oraz rozszerzenie przykładu Python → ewentualny natywny binding Python**.
@@ -108,16 +112,16 @@ Proponowany produkt: **kompletny, lokalny silnik astrometryczny, który można u
 | Biblioteka Rust | `Engine` utrzymujący indeks w pamięci; obrazy i gotowe listy gwiazd | Pierwsza wersja przygotowana; API przed stabilizacją |
 | Matematyka WCS | Pixel↔sky, projekcje, SIP, rozwiązania szerokich pól | W kopii razem z testami |
 | Małe syntetyczne demo | Pierwszy prawdziwy solve bez katalogu, zdjęć innych osób i konta | Przygotowane: generator indeksu i dopasowanej listy gwiazd |
-| Testy i CI | Odtwarzalność, wykrywanie regresji, odbiór platform | Testy macOS i Linux ARM64 w kontenerze; natywne CI nadal do uruchomienia |
+| Testy i CI | Odtwarzalność, wykrywanie regresji, odbiór platform | Natywne CI macOS ARM64, Linux x86-64 i Windows x86-64 zaliczone; oddzielny odbiór danych full-sky na macOS |
 | Dokumentacja integracji | Instalacja, dane, jednostki, wyniki, błędy, czas życia silnika | README, architektura, CLI i przykład Rust/Python przygotowane |
-| Builder i opis formatu indeksu | Niezależność od infrastruktury autora i możliwość odtworzenia danych | Build handcrafted lite i realny solve sprawdzone; tooling bundle gotowy, opis źródeł/warunków i hosting do uzupełnienia |
-| Wagi modelu i model card | Korzystanie z tej samej metody, którą opisują artykuły | Lokalna paczka sanitized LGQ-GD i model card poza Git; bez publikacji, z jawnymi brakami pochodzenia |
+| Builder i opis formatu indeksu | Niezależność od infrastruktury autora i możliwość odtworzenia danych | Build handcrafted i learned lite oraz realne solve sprawdzone; wersjonowane Downloads z manifestami i opisem źródeł |
+| Wagi modelu i model card | Korzystanie z tej samej metody, którą opisują artykuły | Publiczna paczka LGQ-GD i model card przez Downloads, poza Git; jawne braki pochodzenia |
 | Trening i reprodukcja badań | Weryfikacja wyników i rozwój alternatywnych encoderów | Selektywny import potrzebnych modułów `lab`, bez całego historycznego laboratorium |
 | C API i przykłady C++/.NET | Osadzenie w aplikacjach niezależnie od Rust | Następny etap po ustabilizowaniu podstawowego API |
 | Python API | Badania, notebooki, automatyzacja | Teraz przykład subprocess; właściwy binding po kontrakcie sesji |
 | Artykuły, autorstwo, cytowanie | Powiązanie metody z autorem i umożliwienie niezależnej oceny | Dwa istniejące PDF pozostają; CITATION i raport weryfikacji dodane |
 
-Gotowe indeksy full/DEEP/wide są planowaną częścią oddzielnej dystrybucji danych,
+Gotowe indeksy full/DEEP/wide są częścią oddzielnej dystrybucji danych przez Downloads,
 z jawnym opisem źródeł i warunków dla użytku niekomercyjnego, i pozostają poza Git. W repo trafiają manifesty, SHA256,
 zgodność wersji i instrukcja pobrania lub budowy. Kod buildera bez legalnej i
 sprawdzonej ścieżki danych nie wystarcza do premiery dla użytkownika z własnymi zdjęciami.

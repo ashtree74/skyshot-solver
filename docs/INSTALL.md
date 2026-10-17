@@ -1,7 +1,8 @@
-# Install a local CLI candidate
+# Build and install the CLI
 
-No public binary or index release is available yet. Until the release checklist
-passes, build from source using a current stable Rust toolchain and the native
+Ready-to-use indexes are available at [Skyshot Downloads](https://skyshot.app/downloads/):
+Full learned is recommended, with DEEP optional. Public prebuilt CLI binaries are
+not released yet. Build from source using a current stable Rust toolchain and the native
 linker/build tools (Xcode Command Line Tools on macOS, a C toolchain on Linux,
 Visual Studio C++ Build Tools for the Windows MSVC target).
 
@@ -53,11 +54,11 @@ skyshot inspect /path/to/index
 skyshot solve your-frame.fits --index /path/to/index --wcs your-frame.wcs
 ```
 
-For the separately prepared local data archives, use the checksummed installer
-and preset instructions in [DATA-INSTALL.md](DATA-INSTALL.md). It needs Python
+For ready-to-use data, use the checksummed downloader and preset instructions
+in [DATA-INSTALL.md](DATA-INSTALL.md). It needs Python
 3.11+ only for installation and refuses existing destination directories.
 
-Prebuilt full-sky data is a separate, pending public release. `inspect` checks index
+Prebuilt full-sky data is a separate, versioned public preview. `inspect` checks index
 structure and coder identity; it does not hash every catalogue file. A successful
 synthetic solve does not qualify real-sky accuracy. See [RELEASE.md](RELEASE.md)
 for platform evidence and remaining release gates.

@@ -62,8 +62,9 @@ establish runtime support.
 
 Other targets can be built explicitly by the local tool but are not implicitly
 supported. Linux ARM64 container results are evidence for that environment only.
-The GitHub matrix must still pass after the source is committed and pushed under
-a separate publication instruction.
+The public source matrix passed on all three native targets; see the run links
+in the verification record. Repeat it for each release revision. Full-sky data
+qualification is recorded separately in [DATA-INSTALL.md](DATA-INSTALL.md).
 
 ## Publication gates
 
