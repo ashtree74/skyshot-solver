@@ -1,0 +1,41 @@
+name: Solver CI
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-14, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: rustup toolchain install 1.95.0 --profile minimal --component rustfmt --component rust-docs
+      - run: rustup default 1.95.0
+      - run: python -m unittest discover -s tools -p "test_*.py"
+      - run: cargo fmt --all -- --check
+      - run: cargo test --locked --all-targets
+      - run: cargo test --locked --doc
+      - run: cargo check --locked --all-targets --features solver-debug
+      - run: cargo build --locked --release
+      - run: cargo doc --locked --no-deps
+        env:
+          RUSTDOCFLAGS: -D warnings
+      - run: cargo run --release --locked --example synthetic_demo -- demo
+      - name: Package a candidate (no publication)
+        run: python tools/package_cli.py --target host --out outputs/candidate
+      - name: Verify, unpack and smoke-test the candidate
+        run: python tools/check_candidate.py --directory outputs/candidate --demo demo
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: cli-candidate-${{ matrix.os }}
+          path: outputs/candidate/*
+          if-no-files-found: error
+          retention-days: 14

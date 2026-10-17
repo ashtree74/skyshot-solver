@@ -1,0 +1,176 @@
+{
+  "source_commit": "5194a72f6bb524b8ce6fdd08c0d881ca835f5afe",
+  "date": "2026-10-17",
+  "files": [
+    {
+      "path": "src/attempt.rs",
+      "sha256": "7916be9bedecb3b437c872d896589d37ee3db2d536c80778fad74fd943f4dc61"
+    },
+    {
+      "path": "src/builder.rs",
+      "sha256": "611448733b09a86ae428011e6ac8b43733f9a13be2a65922aa6747ecbe1a948a"
+    },
+    {
+      "path": "src/compat.rs",
+      "sha256": "275cc3d6eb1e4b23b39036f1f283c13bfca247ee68cd1e2de7ab2e55fd5a66ba"
+    },
+    {
+      "path": "src/d80.rs",
+      "sha256": "2342ace1d676fabbafe2ee91df6a5af2de96a7f46dd5f01bbac3833c377c1d36"
+    },
+    {
+      "path": "src/detect.rs",
+      "sha256": "bdbca42e75984810ecb0ceac2036d03e40790ce579d0108bb2d9800bb99ebd7f"
+    },
+    {
+      "path": "src/extract.rs",
+      "sha256": "f72eae9579783c392150a6cd419cdc4ef826f0daa77bd8349c6bd1c9715eb35f"
+    },
+    {
+      "path": "src/fingerprint.rs",
+      "sha256": "d03915ef3ca89ea6f985265922acb21c98c2a57538fe82802656f70e8085bf03"
+    },
+    {
+      "path": "src/geometry.rs",
+      "sha256": "0768c2435d045ac834ff301ec9762569e6200db2ae860f0de7774f259d369cef"
+    },
+    {
+      "path": "src/highpass.rs",
+      "sha256": "5a74f15ce261e1cc33c9417ce53e5504eba9094061068b64afd3104eb3a88a28"
+    },
+    {
+      "path": "src/hints.rs",
+      "sha256": "4221c66a6188c45e66ee4732c9fec3ce6736817c78ac102922d15d77c6dd0faf"
+    },
+    {
+      "path": "src/image_io.rs",
+      "sha256": "b7f0986f9dd02a5d3ac383a70de89cc83e5b4ed7b8da07aa340d4bee62a89bbc"
+    },
+    {
+      "path": "src/index.rs",
+      "sha256": "4e38e2eea0c0461af6a9ed05f28401462b75c9a62b9cb631ec038ff5cba199cf"
+    },
+    {
+      "path": "src/learned.rs",
+      "sha256": "f882feb55999e02156bad905757c238107c1371c232a45f4801645039182a128"
+    },
+    {
+      "path": "src/lines.rs",
+      "sha256": "6c4fc08aace5251811189162468a41560359a2cf43723f7a46786f1842245de8"
+    },
+    {
+      "path": "src/measure.rs",
+      "sha256": "b794fe06fb01aab229fb43877cedb752ac23e4952dc5b4ce6c223e5969e1e05c"
+    },
+    {
+      "path": "src/pixelgrid.rs",
+      "sha256": "fc79d9b0ab3e883664995f193652ef5f3ef1f049a976d1fd354d8194e1a45c16"
+    },
+    {
+      "path": "src/patterns.rs",
+      "sha256": "d35051fa3c10947bb39f68ecc5a33b6bf2ae328f5489fe24a7505d017dc76d79"
+    },
+    {
+      "path": "src/pipeline.rs",
+      "sha256": "3cf61d5c382b8fdfe8a10a24b0bfed03666c2ced577ff36173beb199b9c45c2d"
+    },
+    {
+      "path": "src/select.rs",
+      "sha256": "b248d08b2158e0428035a43dfc3f30a2336fa4c34c3a18d9637a31c0e1b800d7"
+    },
+    {
+      "path": "src/skymask.rs",
+      "sha256": "dd19a601a4b4aa90f136425b40b9175e6586cf1dbc870f3888abf10f6fa5249d"
+    },
+    {
+      "path": "src/solve.rs",
+      "sha256": "f0a7df1457096ea842ba8c27e70ab8426623a96827b99b0c33ef02cbfb7a6b1a"
+    },
+    {
+      "path": "src/sphere.rs",
+      "sha256": "ea318245fddb8d672dfa90746ad8738c528a7d5ff036ccb763d8a799066a53ff"
+    },
+    {
+      "path": "src/types.rs",
+      "sha256": "12d5b98e3e1ad4eb3cecfb1aab6ee1a346e907ba20a1c1f87d8dd243dc7f6441"
+    },
+    {
+      "path": "src/vet.rs",
+      "sha256": "7b822ef7b9241d390af4df80dc2df1c6b59124d8a20e3f46fda263d7769bde1f"
+    },
+    {
+      "path": "src/wcsfit.rs",
+      "sha256": "e1859b51429342f9f288c36b8987eedba22e48e6e6b6b31575b604372edd5bdd"
+    },
+    {
+      "path": "src/solve/refract.rs",
+      "sha256": "eb9466bde544b5ebf3aca0f7198a8b59c8a137f1b75782ee2a8f9ab00a8d4ad6"
+    },
+    {
+      "path": "src/solve/wide.rs",
+      "sha256": "496bba7de6b4faa906cbc1be8fe97ad61663bde4eaa783467c1d6ec38a3ac5f2"
+    },
+    {
+      "path": "src/solve/wide/panorama.rs",
+      "sha256": "f3d65333752ea1cde5e3f80da7dfe028d0484c7fbce1b9d6bf707beb760d3425"
+    },
+    {
+      "path": "src/wcsfit/lens.rs",
+      "sha256": "0f46e3ed3fb19172ba5b4519fac5f50bc9f6a61b149335b1dd5bbedbd271a7e9"
+    },
+    {
+      "path": "src/wcsfit/panorama.rs",
+      "sha256": "47a925a0ac7b63fe5891de978b76b9c12d0438c1c886e3625f336d093d12bd19"
+    },
+    {
+      "path": "src/wcsfit/registration.rs",
+      "sha256": "0dd75d8bb5efe23ace28661aa19fcc4342b75be1f31f085e2053b62abbd68064"
+    },
+    {
+      "path": "src/wcsfit/stereographic.rs",
+      "sha256": "7251d56ea3b1c6120f423eff211a7104c96cd8ea352596bd0959c5b84ba8a4b9"
+    },
+    {
+      "path": "src/api/mod.rs",
+      "sha256": "909f7ec504dea58caddac8d4165dd84605755f4f1ce3da7068f359bf5f4de025"
+    },
+    {
+      "path": "src/api/field.rs",
+      "sha256": "0dfbcf9eac7823be2b46c3112cddc489ad2f069d3984ba82fbbd4d0742c10c57"
+    },
+    {
+      "path": "tests/extract.rs",
+      "sha256": "3a2e34665376ccb1ad38f5ae0c4c9544b9f19a81ac009b844a6f1c70f65ae068"
+    },
+    {
+      "path": "tests/fits_hints.rs",
+      "sha256": "bf7baa38dd1bc570d8349f6ef97998035d6bb0bc78254b6d0f624c30d7da0e96"
+    },
+    {
+      "path": "tests/fixtures/panorama-wcs.json",
+      "sha256": "71d177a0702338e55d9c8c6bfc4a7368be48a89c111f9bc65b320646b767eee8"
+    },
+    {
+      "path": "bench/panorama_wcs_fixture.py",
+      "sha256": "11654500ee35420539161afc1c98a9997b69f831f4f2a527378da685baae0063"
+    },
+    {
+      "path": "tests/measure.rs",
+      "sha256": "bc211f9ecb0fea219c552fa0ac391d4961b76a17e51a70999312a0d7bbe28635"
+    }
+  ],
+  "note": "Core source snapshot; hashes identify original files at source_commit, not edited destination files. Extraction edits are described in docs/ARCHITECTURE.md.",
+  "excluded_from_sync": [
+    "AGENTS.md (all case variants and nested paths)",
+    "CLAUDE.md / claud.md (all case variants and nested paths)",
+    "other agent instructions, private settings, logs, user data, binaries and Git history"
+  ],
+  "extracted_geometry": {
+    "sources": [
+      "src/atlas/mod.rs",
+      "src/atlas/engine.rs"
+    ],
+    "destination": "src/coordinates.rs",
+    "scope": "unit vector and WCS coordinate transforms only; no catalogue atlas, IO, labels, UI or service"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "bundle_id": "skyshot-full-lgq-gd-2026.10.17-audit-draft",
+  "engine_versions": [
+    "0.1.0"
+  ],
+  "redistribution": {
+    "status": "pending",
+    "license": null,
+    "evidence": "Owner confirmed non-commercial data use with open source/dependency attribution on 2026-10-17. Source terms/provenance details are recorded in docs/DATA-PROVENANCE.md; pending documentation does not block local packaging."
+  },
+  "sources": [
+    {
+      "name": "Existing D80-derived full index, Gaia DR3 epoch 2025",
+      "upstream": "https://www.hnsky.org/astap.htm",
+      "archive_sha256": null,
+      "terms_evidence": null
+    },
+    {
+      "name": "Existing LGQ-GD u30 coder pair",
+      "coder_sha256": "f8fbce6c7c5736f36c60f92431d0e3918c5d31361a14f4e31536fbe688db88b7",
+      "terms_evidence": null
+    }
+  ],
+  "build": {
+    "key_type": "lgq-gd",
+    "solver_revision": null,
+    "command": null,
+    "note": "Historical build inspected read-only. Exact original build provenance is still pending; no rebuild or metadata edit was performed.",
+    "qualification": "0.1.0 opened and solved one local M66 FITS image; engineering smoke only. No general accuracy benchmark or companion qualification. See docs/verification-2026-10-17.md."
+  },
+  "intended_use": "non-commercial"
+}

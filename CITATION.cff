@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite Skyshot Solver and identify the source revision and data/model bundle used. The manuscripts are listed in README.md."
+type: software
+title: Skyshot Solver
+authors:
+  - family-names: Jesionkiewicz
+    given-names: Adam
+repository-code: https://github.com/ashtree74/skyshot-solver
+url: https://skyshot.app
+license: Apache-2.0

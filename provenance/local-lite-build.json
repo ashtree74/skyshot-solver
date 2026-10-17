@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "status": "local engineering check only; redistribution pending",
+  "input_inventory": "d80-local-inputs.json",
+  "input_inventory_sha256": "8336f5ee28371c16e723d7232543ca54b3104d8e73e3d5895fb1e72a7c9d035e",
+  "command": "skyshot build --d80 D80_DIRECTORY --out NEW_DIRECTORY --profile lite",
+  "toolchain": "rustc 1.95.0 (59807616e 2026-04-14) (Homebrew)\nbinary: rustc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: aarch64-apple-darwin\nrelease: 1.95.0\nLLVM version: 22.1.3",
+  "binary_sha256": "4122315ad0cd03de99542e2d043c14022c21c09438dd10414fdedf9691d5ae55",
+  "sources": [
+    {
+      "path": "Cargo.lock",
+      "sha256": "0d2d424276ceab2c719dfb0dafbe56ff467a899bde110a21a0c85c0778cf7945"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "b57404693e3e12297801439ae8854257b574f854c6d6461335a775677669f6d0"
+    },
+    {
+      "path": "src/api/field.rs",
+      "sha256": "0dfbcf9eac7823be2b46c3112cddc489ad2f069d3984ba82fbbd4d0742c10c57"
+    },
+    {
+      "path": "src/api/mod.rs",
+      "sha256": "444302e3e8df2cca8584698038710a3afc321ff148194ca2611066cc4d97b2ee"
+    },
+    {
+      "path": "src/attempt.rs",
+      "sha256": "7916be9bedecb3b437c872d896589d37ee3db2d536c80778fad74fd943f4dc61"
+    },
+    {
+      "path": "src/builder.rs",
+      "sha256": "611448733b09a86ae428011e6ac8b43733f9a13be2a65922aa6747ecbe1a948a"
+    },
+    {
+      "path": "src/compat.rs",
+      "sha256": "59ae13b5a7f7664951fd7a0b39a478fea0f4eb7db149b6e6794acc2c2160dbb0"
+    },
+    {
+      "path": "src/coordinates.rs",
+      "sha256": "3248539281100e3e667410a88274fa7b47d7c9d9ef38aaaf964ec22cf2c287c0"
+    },
+    {
+      "path": "src/d80.rs",
+      "sha256": "2342ace1d676fabbafe2ee91df6a5af2de96a7f46dd5f01bbac3833c377c1d36"
+    },
+    {
+      "path": "src/detect.rs",
+      "sha256": "bdbca42e75984810ecb0ceac2036d03e40790ce579d0108bb2d9800bb99ebd7f"
+    },
+    {
+      "path": "src/engine.rs",
+      "sha256": "c60c5aa38a08d61de1e11fb4fbb7230c286f6e896106f6301030636a87c6ef88"
+    },
+    {
+      "path": "src/extract.rs",
+      "sha256": "f72eae9579783c392150a6cd419cdc4ef826f0daa77bd8349c6bd1c9715eb35f"
+    },
+    {
+      "path": "src/fingerprint.rs",
+      "sha256": "d03915ef3ca89ea6f985265922acb21c98c2a57538fe82802656f70e8085bf03"
+    },
+    {
+      "path": "src/geometry.rs",
+      "sha256": "1b5f3e62af22b5b386b9dd671719b846526273db139f5d2c5e49d4b988cc77c9"
+    },
+    {
+      "path": "src/highpass.rs",
+      "sha256": "5a74f15ce261e1cc33c9417ce53e5504eba9094061068b64afd3104eb3a88a28"
+    },
+    {
+      "path": "src/hints.rs",
+      "sha256": "4221c66a6188c45e66ee4732c9fec3ce6736817c78ac102922d15d77c6dd0faf"
+    },
+    {
+      "path": "src/image_io.rs",
+      "sha256": "b7f0986f9dd02a5d3ac383a70de89cc83e5b4ed7b8da07aa340d4bee62a89bbc"
+    },
+    {
+      "path": "src/index.rs",
+      "sha256": "1ac373beef0e6cb4a036a9e5f75fb8f0680198ba605cfc7ae8a76f0491b2bf72"
+    },
+    {
+      "path": "src/learned.rs",
+      "sha256": "f882feb55999e02156bad905757c238107c1371c232a45f4801645039182a128"
+    },
+    {
+      "path": "src/lib.rs",
+      "sha256": "0b3f15f75116285caab1b0bfd9c1bbe80a8a10c57ad2ea87a4262ce171aa20c5"
+    },
+    {
+      "path": "src/lines.rs",
+      "sha256": "6c4fc08aace5251811189162468a41560359a2cf43723f7a46786f1842245de8"
+    },
+    {
+      "path": "src/main.rs",
+      "sha256": "d51fd494ed37fd2f24726ed23725d5af3cb0959737ce7a9a30d396fcd7b0a0a3"
+    },
+    {
+      "path": "src/measure.rs",
+      "sha256": "fc6f806ec2a5aa5e3fdac934602bacd0a7272fb0c34337cf46fd17c0912be6b3"
+    },
+    {
+      "path": "src/patterns.rs",
+      "sha256": "d35051fa3c10947bb39f68ecc5a33b6bf2ae328f5489fe24a7505d017dc76d79"
+    },
+    {
+      "path": "src/pipeline.rs",
+      "sha256": "3cf61d5c382b8fdfe8a10a24b0bfed03666c2ced577ff36173beb199b9c45c2d"
+    },
+    {
+      "path": "src/pixelgrid.rs",
+      "sha256": "a1776cf86733f64989841d4d4202786b0c527c894b01c5dcbdaec98b2f79c315"
+    },
+    {
+      "path": "src/select.rs",
+      "sha256": "b248d08b2158e0428035a43dfc3f30a2336fa4c34c3a18d9637a31c0e1b800d7"
+    },
+    {
+      "path": "src/skymask.rs",
+      "sha256": "dd19a601a4b4aa90f136425b40b9175e6586cf1dbc870f3888abf10f6fa5249d"
+    },
+    {
+      "path": "src/solve.rs",
+      "sha256": "6687b5c3859e020d004a17e54e92dd2f64dd436aad3feac8af19c8e873e28161"
+    },
+    {
+      "path": "src/solve/refract.rs",
+      "sha256": "eb9466bde544b5ebf3aca0f7198a8b59c8a137f1b75782ee2a8f9ab00a8d4ad6"
+    },
+    {
+      "path": "src/solve/wide.rs",
+      "sha256": "496bba7de6b4faa906cbc1be8fe97ad61663bde4eaa783467c1d6ec38a3ac5f2"
+    },
+    {
+      "path": "src/solve/wide/panorama.rs",
+      "sha256": "f3d65333752ea1cde5e3f80da7dfe028d0484c7fbce1b9d6bf707beb760d3425"
+    },
+    {
+      "path": "src/sphere.rs",
+      "sha256": "ea318245fddb8d672dfa90746ad8738c528a7d5ff036ccb763d8a799066a53ff"
+    },
+    {
+      "path": "src/types.rs",
+      "sha256": "12d5b98e3e1ad4eb3cecfb1aab6ee1a346e907ba20a1c1f87d8dd243dc7f6441"
+    },
+    {
+      "path": "src/vet.rs",
+      "sha256": "7b822ef7b9241d390af4df80dc2df1c6b59124d8a20e3f46fda263d7769bde1f"
+    },
+    {
+      "path": "src/wcsfit.rs",
+      "sha256": "e1859b51429342f9f288c36b8987eedba22e48e6e6b6b31575b604372edd5bdd"
+    },
+    {
+      "path": "src/wcsfit/lens.rs",
+      "sha256": "0f46e3ed3fb19172ba5b4519fac5f50bc9f6a61b149335b1dd5bbedbd271a7e9"
+    },
+    {
+      "path": "src/wcsfit/panorama.rs",
+      "sha256": "47a925a0ac7b63fe5891de978b76b9c12d0438c1c886e3625f336d093d12bd19"
+    },
+    {
+      "path": "src/wcsfit/registration.rs",
+      "sha256": "0dd75d8bb5efe23ace28661aa19fcc4342b75be1f31f085e2053b62abbd68064"
+    },
+    {
+      "path": "src/wcsfit/stereographic.rs",
+      "sha256": "7251d56ea3b1c6120f423eff211a7104c96cd8ea352596bd0959c5b84ba8a4b9"
+    }
+  ],
+  "index": {
+    "version": 1,
+    "profile": "lite",
+    "key_type": "v1",
+    "r7_arcmin": 1.94,
+    "n_catalog": 264830158,
+    "n_records": 14481534,
+    "files": [
+      {
+        "path": "codes.bin",
+        "bytes": 115852272,
+        "sha256": "c44f6bd115f0de6db26a16efa3c889d73b220155bc638ae452a3b9cef515ebe5"
+      },
+      {
+        "path": "keys.bin",
+        "bytes": 4194308,
+        "sha256": "42edc1563f391e42cd44a850cd452bee0a7a22dc4d12a521300665169fe6887b"
+      },
+      {
+        "path": "stars.bin",
+        "bytes": 75240378,
+        "sha256": "10f6058c7ff0cc6e936b74f0a8cc84d1db7680bd8b795867d26a0c3a2808718e"
+      },
+      {
+        "path": "cells.bin",
+        "bytes": 1572868,
+        "sha256": "9adaaf256f13e3b72ebcf43588b6080e1c07feb2284f9070a831abf811413e3b"
+      }
+    ]
+  },
+  "qualification": {
+    "input_sha256": "1667c97f3da7b342932cf10e3ce160b27573eccc52080d85a105cf5eab8cf673",
+    "status": "solved",
+    "n_matches": 417,
+    "rms_px": 0.15836244222386056,
+    "reference": "Consistency with the existing learned index only; not independent ground truth. No input image redistribution rights asserted."
+  }
+}

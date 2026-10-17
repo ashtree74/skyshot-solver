@@ -1,0 +1,28 @@
+{
+  "bundle_id": "skyshot-full-v1-2026.10.17-draft",
+  "engine_versions": [
+    "0.1.0"
+  ],
+  "redistribution": {
+    "status": "pending",
+    "license": null,
+    "evidence": null
+  },
+  "sources": [
+    {
+      "name": "ASTAP D80, Gaia DR3, epoch 2025, 1476-5",
+      "upstream": "https://www.hnsky.org/astap.htm",
+      "archive_sha256": null,
+      "terms_evidence": null
+    }
+  ],
+  "build": {
+    "solver_revision": null,
+    "command": "skyshot build --d80 D80_DIRECTORY --out NEW_INDEX_DIRECTORY --profile full",
+    "key_type": "v1",
+    "toolchain": null,
+    "input_checksums": null,
+    "qualification": "Draft only. Replace placeholders and record known real-image solves before release."
+  },
+  "intended_use": "non-commercial"
+}

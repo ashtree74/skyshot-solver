@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "author": "Adam Jesionkiewicz",
+  "release": {
+    "schema_version": 1,
+    "release_id": "skyshot-data-2026.10.17.1",
+    "author": "Adam Jesionkiewicz",
+    "status": "local-candidate-unpublished",
+    "engine_versions": [
+      "0.1.0"
+    ],
+    "artifacts": [
+      {
+        "bundle_id": "skyshot-full-lgq-2026.10.17.1",
+        "kind": "index",
+        "variant": "full-lgq",
+        "archive": "skyshot-full-lgq-2026.10.17.1.tar.gz",
+        "bytes": 838495724,
+        "sha256": "b988966726f2a82ecb0fa3a06de4f3fdc8762420d068b1ee9ef2d017a55953e8",
+        "manifest": "skyshot-full-lgq-2026.10.17.1.bundle.json",
+        "manifest_sha256": "74e5d99b13c2a6cb7fbc7011541372553e50cf3d38eb8078fbcf4862882f1943",
+        "coder_sha256": "b2a991cfbf658e406f2d7a8f060fb31a39a7371885064d6306ffbbdd9983569a"
+      },
+      {
+        "bundle_id": "skyshot-deep-lgq-2026.10.17.1",
+        "kind": "index",
+        "variant": "deep-lgq",
+        "archive": "skyshot-deep-lgq-2026.10.17.1.tar.gz",
+        "bytes": 4087235895,
+        "sha256": "0aff2301fcb585f8efb484207fc995beca0170993fd9623bfd37290b0a336dd7",
+        "manifest": "skyshot-deep-lgq-2026.10.17.1.bundle.json",
+        "manifest_sha256": "b23dfc053d42e57f7b542f6badeb4fc6bbdcb37064536b75536109c94ebf4b0b",
+        "coder_sha256": "b2a991cfbf658e406f2d7a8f060fb31a39a7371885064d6306ffbbdd9983569a"
+      },
+      {
+        "bundle_id": "skyshot-wide-lgq-2026.10.17.1",
+        "kind": "index",
+        "variant": "wide-lgq",
+        "archive": "skyshot-wide-lgq-2026.10.17.1.tar.gz",
+        "bytes": 16574834,
+        "sha256": "217116632dc516fc40a6a9917dafd9f2550704fe1c98ed873ccf707b5710eeb9",
+        "manifest": "skyshot-wide-lgq-2026.10.17.1.bundle.json",
+        "manifest_sha256": "81748080ca72befba885dd65acd2e3913caf6b07ec78ed6288ecaf361e0cc88b",
+        "coder_sha256": "b2a991cfbf658e406f2d7a8f060fb31a39a7371885064d6306ffbbdd9983569a"
+      },
+      {
+        "bundle_id": "skyshot-full-v1-2026.10.17.1",
+        "kind": "index",
+        "variant": "full-v1",
+        "archive": "skyshot-full-v1-2026.10.17.1.tar.gz",
+        "bytes": 837017564,
+        "sha256": "02b2203c843d3ac1344923f0e52f1a1be478c212680904399fef8d38f0fe095f",
+        "manifest": "skyshot-full-v1-2026.10.17.1.bundle.json",
+        "manifest_sha256": "e18da8772bf764d2c2d2c1fa32e35c333e405bf374253924120e68925573efe5",
+        "coder_sha256": null
+      },
+      {
+        "bundle_id": "skyshot-lgq-gd-2026.10.17.1",
+        "kind": "model",
+        "variant": "model",
+        "archive": "skyshot-lgq-gd-2026.10.17.1.tar.gz",
+        "bytes": 247557,
+        "sha256": "1e7c3abbefa76b92de2cbaacb40543043e7d5b9cfa8bc5889818dbdc3379831b",
+        "manifest": "skyshot-lgq-gd-2026.10.17.1.bundle.json",
+        "manifest_sha256": "40a72788a135eecd866bd2386edbf3baac35774c173a61ac6d07a59f4815d6de",
+        "coder_sha256": "b2a991cfbf658e406f2d7a8f060fb31a39a7371885064d6306ffbbdd9983569a"
+      }
+    ],
+    "presets": {
+      "full": {
+        "index": "skyshot-full-lgq-2026.10.17.1"
+      },
+      "complete": {
+        "index": "skyshot-full-lgq-2026.10.17.1",
+        "index-deep": "skyshot-deep-lgq-2026.10.17.1",
+        "index-phone": "skyshot-wide-lgq-2026.10.17.1"
+      },
+      "handcrafted": {
+        "index-v1": "skyshot-full-v1-2026.10.17.1"
+      },
+      "model": {
+        "model": "skyshot-lgq-gd-2026.10.17.1"
+      }
+    },
+    "qualification": {
+      "file": "QUALIFICATION.json",
+      "sha256": "09b0b9a0811a4dfdc62f7c9d292ffb034030aa14246887c924335848753bf0c0"
+    }
+  },
+  "release_json_sha256": "8268d7bb6bfe3190ae2c77daa80aef13745a2ccf8463d1ea5bec803d01311f40",
+  "sha256sums_sha256": "d66888e861da400a7d973994cc66dba45d19dec40e9799e95ff1769bbaaae70d",
+  "local_directory": "outputs/data-release-2026.10.17.1",
+  "published": false,
+  "instructions": "docs/DATA-INSTALL.md",
+  "note": "Hashes identify local candidate bytes. Archive files and weights are ignored and not included in Git. Exact qualification and per-file manifests accompany the archives."
+}

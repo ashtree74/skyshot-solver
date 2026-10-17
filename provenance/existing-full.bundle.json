@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "bundle_id": "skyshot-full-lgq-gd-2026.10.17-audit-draft",
+    "engine_versions": [
+      "0.1.0"
+    ],
+    "redistribution": {
+      "status": "pending",
+      "license": null,
+      "evidence": "Owner confirmed non-commercial data use with open source/dependency attribution on 2026-10-17. Source terms/provenance details are recorded in docs/DATA-PROVENANCE.md; pending documentation does not block local packaging."
+    },
+    "sources": [
+      {
+        "name": "Existing D80-derived full index, Gaia DR3 epoch 2025",
+        "upstream": "https://www.hnsky.org/astap.htm",
+        "archive_sha256": null,
+        "terms_evidence": null
+      },
+      {
+        "name": "Existing LGQ-GD u30 coder pair",
+        "coder_sha256": "f8fbce6c7c5736f36c60f92431d0e3918c5d31361a14f4e31536fbe688db88b7",
+        "terms_evidence": null
+      }
+    ],
+    "build": {
+      "key_type": "lgq-gd",
+      "solver_revision": null,
+      "command": null,
+      "note": "Historical build inspected read-only. Exact original build provenance is still pending; no rebuild or metadata edit was performed.",
+      "qualification": "0.1.0 opened and solved one local M66 FITS image; engineering smoke only. No general accuracy benchmark or companion qualification. See docs/verification-2026-10-17.md."
+    },
+    "intended_use": "non-commercial"
+  },
+  "index": {
+    "format": "skyanchor2-index",
+    "version": 2,
+    "profile": "full",
+    "key_type": "lgq-gd",
+    "coder_sha256": "f8fbce6c7c5736f36c60f92431d0e3918c5d31361a14f4e31536fbe688db88b7",
+    "catalog_fingerprint": "9f74976668a9832e90ee057b635e58743db8891c53248e9e0268439484efa334",
+    "r7_arcmin": 1.94
+  },
+  "files": [
+    {
+      "path": "cells.bin",
+      "bytes": 1572868,
+      "sha256": "9adaaf256f13e3b72ebcf43588b6080e1c07feb2284f9070a831abf811413e3b"
+    },
+    {
+      "path": "coder.f32",
+      "bytes": 260800,
+      "sha256": "1c8649f3ba718db069e8eb9126a2f988e61a86519d41cc3b6b8859a247e8522a"
+    },
+    {
+      "path": "coder.json",
+      "bytes": 2168,
+      "sha256": "6e5aa9ee0c2feca53dd69fdb5c067b9943292c0985616ee001fdf46490f89000"
+    },
+    {
+      "path": "codes.bin",
+      "bytes": 581019936,
+      "sha256": "741655248ddc7823d0d4939adeabe85a06d52e79792e5421364eb9875442583f"
+    },
+    {
+      "path": "deep.bin",
+      "bytes": 219095214,
+      "sha256": "65ddaa89106a61a3fcc9543c14c10e3d30557c560491cd0ad0358c637b1c7f09"
+    },
+    {
+      "path": "deep_cells.bin",
+      "bytes": 1572868,
+      "sha256": "c1f1e0daa7313335f9c6f501e5fcd99682fa2bca50b6e37ef05ba211f8d33e68"
+    },
+    {
+      "path": "keys.bin",
+      "bytes": 4194308,
+      "sha256": "cffce0f1dc3d72d012cb8c627c8706c4346e1b8c86ebd1d64d5da7a21354c5c4"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 2019,
+      "sha256": "211a461ac1671df0d5016fc1f898f51272226d296c3737260a7ce381633d2152"
+    },
+    {
+      "path": "stars.bin",
+      "bytes": 75240378,
+      "sha256": "10f6058c7ff0cc6e936b74f0a8cc84d1db7680bd8b795867d26a0c3a2808718e"
+    }
+  ]
+}
