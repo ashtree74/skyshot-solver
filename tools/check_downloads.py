@@ -27,8 +27,9 @@ class Links(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
-        if tag in ("a", "link") and "href" in attrs:
-            url = urllib.parse.urljoin(ROOT_URL, attrs["href"])
+        attribute = "src" if tag == "script" else "href"
+        if tag in ("a", "link", "script") and attribute in attrs:
+            url = urllib.parse.urljoin(ROOT_URL, attrs[attribute])
             if url.startswith(ROOT_URL) and "#" not in url:
                 self.links.add(url)
 
