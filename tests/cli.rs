@@ -108,3 +108,26 @@ fn index_builder_never_replaces_an_existing_directory() {
     assert_eq!(output.status.code(), Some(2));
     assert_eq!(fs::read(marker).unwrap(), b"keep");
 }
+
+#[cfg(not(unix))]
+#[test]
+fn unsupported_memory_lock_does_not_prevent_solving() {
+    let tmp = tempfile::tempdir().unwrap();
+    let index = tmp.path().join("index");
+    let (field, expected) = support::synthetic_catalog(&index).unwrap();
+    let engine = Engine::open(&index).unwrap();
+    let error = engine.index().lock_in_memory().unwrap_err();
+    assert_eq!(error.kind(), std::io::ErrorKind::Unsupported);
+    let result = engine
+        .solve_sources(
+            &field,
+            &SolveConfig {
+                deadline_ms: 10000.0,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+    assert_eq!(result.solution.status, "solved");
+    assert!((result.solution.ra - expected.ra).abs() < 0.001);
+    assert!((result.solution.dec - expected.dec).abs() < 0.001);
+}

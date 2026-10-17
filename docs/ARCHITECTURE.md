@@ -27,6 +27,10 @@ FITS / PNG / JPEG / TIFF              StarField from your detector
 
 `builder` and `d80` form an offline data preparation path. Real catalogues are external inputs. `learned` implements LGQ-GD inference and probing; it does not download a model. A learned index contains its coder and manifest identity. The default CLI builder uses the handcrafted v1 key unless `--coder` is provided.
 
+`Index::lock_in_memory` is an optional Unix `mlock` operation and needs sufficient
+OS memlock allowance. On other platforms it returns `ErrorKind::Unsupported`;
+ordinary memory mapping and solving remain available without page locking.
+
 `measure` contains image measurements shared with the extractor. It is included because detector paths use it. `coordinates` contains only the deterministic WCS mathematics formerly shared with the annotation layer; catalogue annotations, atlas packs and web presentation are excluded.
 
 ## Changes made during extraction

@@ -1,8 +1,11 @@
 # Verification record — 2026-10-17
 
-This record concerns the local uncommitted extraction plus release preparation.
-The solver mathematics have not been rewritten. Candidate archives contain a
+This record starts with local extraction and release preparation; the final
+sections record the first source push and native CI findings. The solver
+mathematics have not been rewritten. Candidate archives contain a
 source file inventory/hash; the original Git HEAD alone does not identify them.
+
+## Initial local acceptance, before the source push
 
 | Check | Observed result |
 | --- | --- |
@@ -186,3 +189,24 @@ links resolved. The 103-file source tree was about 1.76 MB including the two
 existing PDFs; no indexed file exceeded 1 MB. The GitHub Actions commit pins
 were verified against their upstream repositories. Native GitHub CI results
 must be attributed to the actual pushed commit when they are available.
+
+## First source push and native CI
+
+Implementation source was pushed to `main` as `d755ca98b1803cb4758036c673db83e4d6bde9d2`.
+Data archives and weights remain local and ignored. The
+[first native CI run](https://github.com/ashtree74/skyshot-solver/actions/runs/39056005119)
+passed the complete macOS and Linux jobs, including tests, release build,
+synthetic solving, packaging and unpacked candidate checks. Windows passed the
+Python tools and formatting but exposed a compile error: the optional
+`Index::lock_in_memory` called a `memmap2::Mmap::lock` method available only on
+Unix. No Windows solving result is inferred from that failed job.
+
+The correction preserves Unix behavior and returns `ErrorKind::Unsupported`
+explicitly on other platforms. Normal index mapping and solving do not call
+this optional method. A Windows regression test requires that error and then
+solves the synthetic field successfully. Local targeted CLI tests, all-target
+feature check, Rust documentation and formatting passed; actual Windows
+execution is delegated to the successor native CI run for the correction.
+The post-fix diff review found no additional issue in this boundary. See the
+[workflow history](https://github.com/ashtree74/skyshot-solver/actions/workflows/ci.yml)
+for the result associated with each exact commit.

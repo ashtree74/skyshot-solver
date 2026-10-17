@@ -502,11 +502,23 @@ impl Index {
 
     /// Lock the mapped files in memory (`mlock`): the kernel never evicts them, so no solve
     /// waits for the disk. Needs a memlock limit of at least [`Index::mapped_bytes`].
+    /// This optional operation is supported on Unix; other platforms return
+    /// [`std::io::ErrorKind::Unsupported`]. Normal mapping and solving do not require it.
     pub fn lock_in_memory(&self) -> std::io::Result<u64> {
-        for m in self.maps() {
-            m.lock()?;
+        #[cfg(unix)]
+        {
+            for m in self.maps() {
+                m.lock()?;
+            }
+            Ok(self.mapped_bytes())
         }
-        Ok(self.mapped_bytes())
+        #[cfg(not(unix))]
+        {
+            Err(std::io::Error::new(
+                std::io::ErrorKind::Unsupported,
+                "locking index mappings in memory is supported only on Unix",
+            ))
+        }
     }
 
     /// An opaque identifier of the build (results can differ between builds); reveals nothing
