@@ -100,14 +100,21 @@ replaced, and no legal clearance is claimed by the checksum tooling.
 """
 
 
-def evidence(directory, meta, model_id, coder_sha):
+def evidence(directory, meta, model_id, coder_sha, public_preview=False):
     directory.mkdir()
-    (directory / "LICENSE-DATA.txt").write_text(LICENSE_DATA)
+    terms = LICENSE_DATA
+    if public_preview:
+        terms = terms.replace("Skyshot data candidate — local preparation, no publication",
+                              "Skyshot data — public preview, non-commercial intended use")
+        terms = terms.replace("remain to be\ndocumented before publication", "remain to be\ndocumented")
+        terms += "\nPublic availability was authorized by the project owner on 2026-10-17.\nThis authorization does not establish any missing upstream license grant.\n"
+    (directory / "LICENSE-DATA.txt").write_text(terms)
     data.write_json(directory / "PROVENANCE.json", meta)
-    (directory / "INSTALL.md").write_text("""# Install this local Skyshot data candidate
+    (directory / "INSTALL.md").write_text("""# Install Skyshot data
 
 Author and bundle maintainer: Adam Jesionkiewicz.
 
+Current public installation guide: https://skyshot.app/downloads/
 Use the release-level INSTALL.md and release.json with tools/install_data.py.
 Verify SHA256SUMS first. Install into a NEW directory; do not merge an old index.
 Every learned index already contains its exact coder.f32/coder.json pair.
@@ -169,7 +176,7 @@ the release QUALIFICATION.json. Private images and their paths are excluded.
 """)
 
 
-def stage(source, out, version):
+def stage(source, out, version, public_preview=False):
     data.require(re.fullmatch(r"\d{4}\.\d{2}\.\d{2}\.\d+", version), "version must be YYYY.MM.DD.N")
     data.require(not out.resolve().is_relative_to(source.resolve()), "output must be outside source")
     out.mkdir(parents=True, exist_ok=False)
@@ -189,8 +196,11 @@ def stage(source, out, version):
     data.write_json(model_dir / "coder.json", clean)
     coder_sha = model.identity(model_dir)["coder_sha256"]
     model_meta = metadata(bundle_ids["model"], "LGQ-GD coder", inventory["work/index"], coder_sha)
+    if public_preview:
+        model_meta["availability"] = "public-preview"
+        model_meta["redistribution"]["evidence"] = "Owner authorized public non-commercial data downloads on skyshot.app on 2026-10-17. Upstream terms and provenance gaps remain recorded in LICENSE-DATA.txt; no missing grant is inferred."
     data.write_json(out / f"{bundle_ids['model']}.metadata.json", model_meta)
-    evidence(out / f"{bundle_ids['model']}.evidence", model_meta, bundle_ids["model"], coder_sha)
+    evidence(out / f"{bundle_ids['model']}.evidence", model_meta, bundle_ids["model"], coder_sha, public_preview)
     for kind, (name, _) in PROFILES.items():
         src = source / "work" / name
         dst = staging / bundle_ids[kind]
@@ -213,12 +223,16 @@ def stage(source, out, version):
         data.write_json(dst / "manifest.json", manifest)
         data.index_identity(dst)
         meta = metadata(bundle_ids[kind], kind, inventory[f"work/{name}"], coder_sha if learned else None)
+        if public_preview:
+            meta["availability"] = "public-preview"
+            meta["redistribution"]["evidence"] = model_meta["redistribution"]["evidence"]
         meta["build"]["key_type"] = identity["key_type"]
         data.write_json(out / f"{bundle_ids[kind]}.metadata.json", meta)
-        evidence(out / f"{bundle_ids[kind]}.evidence", meta, bundle_ids["model"], coder_sha if learned else None)
+        evidence(out / f"{bundle_ids[kind]}.evidence", meta, bundle_ids["model"], coder_sha if learned else None, public_preview)
     data.require(inventory == source_inventory(source), "source changed during staging")
     data.write_json(out / "STAGED.json", {"version": version, "bundle_ids": bundle_ids,
-                                          "coder_sha256": coder_sha, "author": AUTHOR})
+                                          "coder_sha256": coder_sha, "author": AUTHOR,
+                                          "public_preview": public_preview})
     print(f"Staged {len(PROFILES)} indexes and coder; source hashes unchanged", flush=True)
 
 
@@ -257,11 +271,15 @@ def pack(source, out, qualification):
                           "coder_sha256": staged["coder_sha256"] if kind != "full-v1" else None})
     b = staged["bundle_ids"]
     release = {"schema_version": 1, "release_id": f"skyshot-data-{staged['version']}", "author": AUTHOR,
-               "status": "local-candidate-unpublished", "engine_versions": ["0.1.0"], "artifacts": artifacts,
+               "status": "public-preview" if staged.get("public_preview") else "local-candidate-unpublished",
+               "engine_versions": ["0.1.0"], "artifacts": artifacts,
                "presets": {"full": {"index": b["full-lgq"]},
+                           "full-deep": {"index": b["full-lgq"], "index-deep": b["deep-lgq"]},
                            "complete": {"index": b["full-lgq"], "index-deep": b["deep-lgq"], "index-phone": b["wide-lgq"]},
                            "handcrafted": {"index-v1": b["full-v1"]}, "model": {"model": b["model"]}},
                "qualification": {"file": "QUALIFICATION.json", "sha256": data.digest(out / "QUALIFICATION.json")}}
+    if staged.get("public_preview"):
+        release["base_url"] = f"https://skyshot.app/downloads/releases/{staged['version']}/"
     no_private_text(release)
     data.write_json(out / "release.json", release)
     (out / "tools").mkdir()
@@ -285,10 +303,11 @@ def main():
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--version", default="2026.10.17.1")
     p.add_argument("--qualification", type=Path)
+    p.add_argument("--public-preview", action="store_true", help="record owner-authorized public preview availability; does not clear upstream terms")
     a = p.parse_args()
     try:
         if a.command == "stage":
-            stage(a.source, a.out, a.version)
+            stage(a.source, a.out, a.version, a.public_preview)
         else:
             data.require(a.qualification is not None, "--qualification required")
             pack(a.source, a.out, a.qualification)

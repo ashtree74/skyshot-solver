@@ -1,7 +1,10 @@
 # Data bundle protocol (version 1)
 
-This is implemented local release tooling, not an announcement of downloadable
-data. The owner has confirmed non-commercial data use with openly recorded
+Public preview **2026.10.17.2** is served from [Skyshot Downloads](https://skyshot.app/downloads/).
+The [pinned release catalogue](../provenance/data-releases/2026.10.17.2/release.json)
+contains exact archive sizes, SHA256, coder identity, engine compatibility and presets.
+Full learned is recommended; `full-deep` adds the optional DEEP companion.
+The following protocol also documents the earlier local candidates. The owner has confirmed non-commercial data use with openly recorded
 sources, dependencies and terms. See [DATA-PROVENANCE.md](DATA-PROVENANCE.md)
 for the inventory; it is not an additional project approval gate.
 
@@ -10,7 +13,7 @@ independent. Use immutable bundle IDs such as `skyshot-full-v1-2026.10.17.1`.
 A change to any bytes requires a new bundle and new checksums. Never replace
 files in a mapped index, and never alter the canonical source indexes.
 
-## Prepared local candidates
+## Earlier local candidates
 
 Version `2026.10.17.1` contains four separate index archives (`full-lgq`,
 `deep-lgq`, historical `wide-lgq`, `full-v1`) and one standalone `lgq-gd` model.
@@ -64,7 +67,13 @@ The pack step requires a passing receipt covering every staged runtime hash.
 After packaging, install archives into fresh directories and repeat qualification
 with `--installed INSTALL_PARENT` containing `complete/`, `handcrafted/` and
 `model/` presets. Keep the separate installation receipt with the candidates.
-No upload or remote publication is implemented by these commands.
+No upload or remote publication is implemented by these preparation commands.
+For an explicitly authorized public preview, stage with `--public-preview`,
+qualify and pack as above. Keep released archives immutable and distribute them
+separately from Git, together with manifests, notices and installer helpers.
+Public availability is separate from the recorded upstream terms status; the
+flag never changes `pending` to `cleared`. See [DATA-INSTALL.md](DATA-INSTALL.md)
+for the published downloads and installation instructions.
 
 `tools/data_bundle.py` uses Python 3.11+ and the standard library. It reads selected
 runtime files, never recursively imports a directory and never writes into the

@@ -1,11 +1,51 @@
-# Install the local Skyshot data candidates
+# Download and install Skyshot data
 
 Author, LGQ-GD model author and bundle maintainer: **Adam Jesionkiewicz**.
 Catalogue attribution remains with ASTAP / Han Kleijn and ESA Gaia / DPAC.
-These are locally prepared candidates, not published downloads. No data URL or
-distribution permission is implied. Read each bundle's `LICENSE-DATA.txt` and
-`PROVENANCE.json`; non-commercial intended use and incomplete source/terms
-records remain explicit. Apache 2.0 on the solver is separate.
+Public preview downloads: **[skyshot.app/downloads](https://skyshot.app/downloads/)**.
+Version **2026.10.17.2** is compatible with Skyshot Solver **0.1.0**.
+Read each bundle's `LICENSE-DATA.txt`, `PROVENANCE.json` and model card;
+non-commercial intended data use and incomplete source/terms records remain
+explicit. Apache 2.0 on the implementation is separate.
+
+## Quick start from a fresh checkout
+
+Install Rust and Python 3.11+, then:
+
+```sh
+git clone https://github.com/ashtree74/skyshot-solver.git
+cd skyshot-solver
+cargo build --release --locked
+python3 tools/fetch_data.py --preset full --dest data/skyshot-full-2026.10.17.2
+./target/release/skyshot solve your-image.fits --index data/skyshot-full-2026.10.17.2/index --wcs solution.wcs
+```
+
+**Full learned is recommended.** It includes its exact coder; no separate model
+download or D80 build is needed. The downloader checks the public release record
+against the catalogue committed in this repository, verifies every archive and
+unpacked runtime file, and installs only into a **new** directory. Python is
+needed for installation, not for runtime solving. On Windows use `py -3` and
+`target\release\skyshot.exe`. Check that your Python is 3.11 or newer.
+
+For the optional DEEP companion, select `full-deep` and another new destination:
+
+```sh
+python3 tools/fetch_data.py --preset full-deep --dest data/skyshot-full-deep-2026.10.17.2
+./target/release/skyshot solve narrow-image.fits --index data/skyshot-full-deep-2026.10.17.2/index --mode deep --wcs narrow.wcs
+```
+
+The default cache is `data/download-cache/skyshot-data-2026.10.17.2`. Repeated
+commands reuse verified archives, so adding DEEP does not redownload Full.
+Interrupted `.part` transfers resume when the command is rerun. Use `--cache`
+to choose another cache location. One process may use a cache at a time; after a
+process crash remove only its stale `.download.lock` before retrying. Corrupt
+cache files are reported rather than silently replaced. Installed indexes are
+never merged or overwritten.
+
+Allow about **2 GB** for Full's archive and installed files together, or **11 GB**
+for Full + DEEP. Data files are platform independent. Actual real-image data
+qualification is on macOS ARM64; native Linux/Windows CI verifies synthetic
+solving and CLI packaging, not this full-sky data combination.
 
 ## Requirements and package choice
 
@@ -26,6 +66,7 @@ Python nor the original development repository.
 | Preset | Contents | Use |
 | --- | --- | --- |
 | `full` (default) | Learned full as `index/`, including its coder | Start here for ordinary astronomical images |
+| `full-deep` | Learned full + `index-deep/` companion | Optional support for narrow fields, without the wide download |
 | `complete` | Learned full + DEEP + historical wide companion | Adds narrow-field and wide-field searches; requires substantially more disk space |
 | `handcrafted` | Full handcrafted as `index-v1/`, without companions | Reproducible baseline with no learned model |
 | `model` | Standalone LGQ-GD as `model/coder.f32` + `coder.json` | Build a new learned index from separately obtained D80 |
@@ -40,7 +81,7 @@ profile metadata; it is not the default lite builder preset. The model is about
 
 ## Check and install
 
-Obtain the selected local archives, `release.json`, `SHA256SUMS`, `INSTALL.md`
+For manual or offline installation, obtain the selected archives, `release.json`, `SHA256SUMS`, `INSTALL.md`
 and the accompanying `tools/` directory from the prepared release folder.
 Keep their relative layout. Use a trusted copy of the checksums/release manifest;
 hashes detect corruption but do not establish origin on their own.
@@ -72,12 +113,13 @@ No existing installation is overwritten or merged.
 On Windows with Python 3.11+ installed, use PowerShell:
 
 ```powershell
-py -3 tools/install_data.py --release release.json --preset full --engine-version 0.1.0 --dest C:\Skyshot\data-new
+py -3 tools/install_data.py --release release.json --preset full --engine-version 0.1.0 --dest data\skyshot-new
 ```
 
 The same installer verifies the archive hashes on Windows. For manual checksum
 comparison, use `Get-FileHash ARCHIVE.tar.gz -Algorithm SHA256` and compare with
-the trusted release record. Native Windows solve verification is still pending.
+the trusted release record. Native Windows CI verifies synthetic solving; real-image
+qualification of this full-sky data combination remains macOS ARM64 only.
 
 ## Solve your own image
 
@@ -132,5 +174,5 @@ The full catalogue builder needs substantial RAM even for smaller profiles.
 
 Keep an old installation intact for rollback. Close all engines mapping it
 before changing the configured path; never replace mapped files in place.
-All archives and weights stay outside Git. Publication requires a separate
-instruction from the owner.
+All archives and weights stay outside Git; downloads are versioned HTTPS files
+linked from the repository. Never change files under an existing published ID.

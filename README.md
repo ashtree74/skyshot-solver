@@ -6,6 +6,8 @@
 
 **Experience Skyshot in your browser with the live web demo.**
 
+**[Download ready-to-use indexes → skyshot.app/downloads](https://skyshot.app/downloads/)** — Full learned is recommended; DEEP is optional.
+
 [How it works](#how-skyshot-solves-in-milliseconds) · [What you can build](#what-you-can-build) · [Build the solver](#build-and-try-without-downloading-a-catalogue) · [Watch the video](https://youtu.be/lBq3xXwquJM) · [Research](#research)
 
 Skyshot is an open-source **blind plate-solving engine built for millisecond-scale sky recognition**. Give it an image or a list of detected stars, and it works out where the camera is pointing, its image scale and orientation, and a World Coordinate System (WCS) that maps pixels to the sky. It can solve without an initial position, scale, rotation or parity hint, using a local catalogue index and a CPU.
@@ -85,7 +87,16 @@ The synthetic example checks the full development path. Its small catalogue cann
 
 ## Solve your images
 
-Use a compatible, separately obtained index:
+Download the recommended **Full learned** index from [Skyshot Downloads](https://skyshot.app/downloads/). It includes its matching coder. With Python 3.11+ and the release build above:
+
+```sh
+python3 tools/fetch_data.py --preset full --dest data/skyshot-full-2026.10.17.2
+./target/release/skyshot solve your-image.fits --index data/skyshot-full-2026.10.17.2/index --wcs solution.wcs
+```
+
+For narrow fields, optionally install `--preset full-deep` into another new directory. The verified cache reuses Full; DEEP adds a 4.09 GB download. Full alone is 838 MB. The installer verifies the release catalogue, archive SHA256 and unpacked files, resumes interrupted downloads, and never merges existing indexes. See the [installation guide](docs/DATA-INSTALL.md) for Windows, manual installation, storage requirements and compatibility.
+
+Once `skyshot` is on your `PATH`, other common commands are:
 
 ```sh
 skyshot solve frame.fits --index /path/to/index --wcs solution.wcs
@@ -99,20 +110,9 @@ The executable is built at `target/release/skyshot` (`skyshot.exe` on Windows). 
 
 Image inputs: supported FITS images, PNG, JPEG and TIFF. `solve` prints JSON; diagnostics go to stderr. Exit codes: **0** solved/success, **1** unsolved or ambiguous, **2** input/configuration/I/O failure. `batch` emits one JSON line per input, continues after individual failures and returns the most severe exit status. WCS files are written only on success and existing files are never replaced.
 
-See [the CLI contract](docs/CLI.md) and [index setup](docs/DATA.md). Prebuilt catalogue indexes and model weights are not bundled in this initial extraction. The engine can read compatible learned-key indexes containing their coder; building a new learned-key index requires a separately supplied coder pair. Dataset provenance and distribution are part of the release plan.
+See [the CLI contract](docs/CLI.md) and [index setup](docs/DATA.md). Indexes and model weights are distributed separately from Git through versioned HTTPS downloads with manifests and SHA256. The current data preview is **2026.10.17.2**, qualified with engine **0.1.0**. Full and DEEP include their coder; the standalone LGQ-GD model is for building new indexes.
 
-The independent build route uses an externally obtained **ASTAP D80, Gaia DR3,
-epoch 2025** catalogue and the handcrafted key. [Data setup](docs/DATA.md) gives
-the required layout and commands. [Versioned bundle tooling](docs/DATA-RELEASE.md)
-is available for preparing and checking separate downloads. Data preparation
-targets non-commercial use with openly recorded sources, attribution and terms;
-external data conditions remain separate from Apache 2.0 on the code. Download
-hosting and publication are still pending. Local versioned candidates for full
-learned, DEEP, wide, full handcrafted and the standalone LGQ-GD coder can now be
-prepared and installed with the [data installation guide](docs/DATA-INSTALL.md).
-Each learned index already includes its matching coder; the standalone model is
-for building new indexes. Metadata identifies Adam Jesionkiewicz as the
-solver/model author and bundle maintainer, with catalogue attribution separate.
+An independent build uses an externally obtained **ASTAP D80, Gaia DR3, epoch 2025** catalogue. The builder uses handcrafted keys by default; supply a compatible coder for learned keys. Data notices record sources, attribution, non-commercial intended use and unresolved provenance details separately from the implementation's Apache 2.0 license. Metadata identifies **Adam Jesionkiewicz** as solver/model author and bundle maintainer, with catalogue attribution separate. See [data provenance](docs/DATA-PROVENANCE.md) and the [bundle protocol](docs/DATA-RELEASE.md).
 
 ## Embed the engine
 

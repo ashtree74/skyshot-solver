@@ -95,7 +95,7 @@ def main():
     p.add_argument("--release", type=Path, required=True)
     p.add_argument("--archive-dir", type=Path)
     p.add_argument("--dest", type=Path, required=True)
-    p.add_argument("--preset", choices=("full", "complete", "handcrafted", "model"), default="full")
+    p.add_argument("--preset", choices=("full", "full-deep", "complete", "handcrafted", "model"), default="full")
     p.add_argument("--engine-version", required=True)
     a = p.parse_args()
     try:

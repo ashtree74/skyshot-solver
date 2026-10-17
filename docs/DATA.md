@@ -2,12 +2,8 @@
 
 Code and data are separate distributions. This source snapshot does not contain full-sky catalogues, generated production indexes, atlas packs, model weights or users' photographs. The synthetic demo and tests create artificial data locally and need no catalogue download.
 
-Local candidate archives now exist separately from Git: learned full, DEEP and
-historical wide, full handcrafted, and a sanitized standalone LGQ-GD coder.
-Follow [DATA-INSTALL.md](DATA-INSTALL.md) to select a preset, check hashes, install
-into a new directory and solve your own image. Public hosting is not configured
-and nothing has been published. Each learned index contains its exact coder;
-installing the standalone model is unnecessary for ordinary solving.
+Ready-to-use public preview archives are available at **[Skyshot Downloads](https://skyshot.app/downloads/)**, separately from Git. **Full learned is recommended; DEEP is optional.** Each learned index contains its matching coder. No separate model or catalogue build is needed for solving.
+Follow [DATA-INSTALL.md](DATA-INSTALL.md) for the checksummed, resumable downloader, fresh-directory installation and your first image. The standalone model, historical wide index and handcrafted baseline are available as additional developer downloads.
 
 For real images, supply an existing compatible index directory. The current readers support the ordinary and DEEP formats used by the extracted solver; the manifest records the version, profile, declared file sizes and key type. A learned-key index also contains its matching coder pair and digest. Do not mix a coder from another build with an existing index.
 
@@ -77,8 +73,8 @@ Without `--coder`, the CLI builds the handcrafted v1 variant. This is useful for
 - Provide a verified download/install path, including interrupted download handling and a known real-image test.
 - Keep the tiny synthetic example independent of all external downloads.
 
-Local archives, checksummed installation and new-copy real-image qualification
-are prepared. Public delivery, complete terms/input lineage, an openly
-redistributable real-image qualification fixture and remaining native platform
-checks are still release work. A source build and a synthetic solve alone are
-not a ready public distribution of real-sky data.
+Public preview archives include checksummed installation and new-copy real-image
+qualification. Complete terms/input lineage and an openly redistributable real-image
+qualification fixture remain future work. Native CI covers synthetic solving on
+Linux, macOS and Windows; these full-sky data combinations were qualified on
+macOS ARM64. See the [download and installation guide](DATA-INSTALL.md).

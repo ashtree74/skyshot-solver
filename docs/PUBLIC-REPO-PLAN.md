@@ -4,6 +4,23 @@ Decyzja zakresowa z 17 października 2026: `skyshot-solver` jest samodzielnym re
 
 ## Aktualizacja wykonania — 17 października 2026
 
+**Bieżący etap: publiczne Downloads.** Autor polecił publikację paczek na
+`https://skyshot.app/downloads/`, z Full learned jako zalecanym wariantem i DEEP
+opcjonalnie. Przygotowano nową wersję `2026.10.17.2`, ponownie kwalifikowaną na
+90 rzeczywistych zdjęciach, z identycznymi statusami i WCS względem sprawdzonych
+kopii. Pakiet `full-deep` nie wymusza pobrania wide. Doszedł downloader HTTPS
+z wznawianiem Range, przypiętym katalogiem, SHA256 i instalacją do nowego katalogu.
+Archiwa i wagi pozostają poza Git; w repo jest mały katalog wersji.
+Instrukcja pobrania i instalacji jest w [DATA-INSTALL.md](DATA-INSTALL.md).
+Poniższe zapisy o braku publikacji dotyczą wcześniejszych lokalnych kandydatów.
+
+Natywny CI kodu z poprawką Windows przeszedł na macOS ARM64, Linux x86-64 i
+Windows x86-64: [run 39056489660](https://github.com/ashtree74/skyshot-solver/actions/runs/39056489660).
+Każdy job sprawdził 147 testów Rust, testy narzędzi Python, build release,
+dokumentację, syntetyczny solve oraz pakowanie i uruchomienie CLI. Nie utożsamiamy
+tego z odbiorem rzeczywistych zdjęć na każdej platformie; ten pozostaje macOS ARM64.
+
+
 Doprecyzowanie autora: dane przygotowujemy do **użytku niekomercyjnego**, jawnie
 wymieniając ich źródła, zależności, atrybucję i warunki. Nie traktujemy tej
 inwentaryzacji jako ogólnej blokady prac ani dodatkowego procesu zatwierdzania.

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "release_id": "skyshot-data-2026.10.17.2",
+  "author": "Adam Jesionkiewicz",
+  "status": "public-preview",
+  "engine_versions": [
+    "0.1.0"
+  ],
+  "artifacts": [
+    {
+      "bundle_id": "skyshot-full-lgq-2026.10.17.2",
+      "kind": "index",
+      "variant": "full-lgq",
+      "archive": "skyshot-full-lgq-2026.10.17.2.tar.gz",
+      "bytes": 838495827,
+      "sha256": "72aae33b63c4642727e45aa97d076dbdc508cde28ddcc14acc6919f68929f0f1",
+      "manifest": "skyshot-full-lgq-2026.10.17.2.bundle.json",
+      "manifest_sha256": "ca23cdfe424d9b9de6147997a327bfa1de74231524c5521d7e7331db344e8d70",
+      "coder_sha256": "6f11160851442136473cfcfaf185ac1a264c0a90202b59e876c8081f3346e30d"
+    },
+    {
+      "bundle_id": "skyshot-deep-lgq-2026.10.17.2",
+      "kind": "index",
+      "variant": "deep-lgq",
+      "archive": "skyshot-deep-lgq-2026.10.17.2.tar.gz",
+      "bytes": 4087236192,
+      "sha256": "d02baa20825305453937b14cb6d352e53a2b9d9c5bc475c4d003e30d62cf2dfe",
+      "manifest": "skyshot-deep-lgq-2026.10.17.2.bundle.json",
+      "manifest_sha256": "b5edb48c428776a5203d795bfffbb4d2eae09e258c3c088c4463a8451feaf0e4",
+      "coder_sha256": "6f11160851442136473cfcfaf185ac1a264c0a90202b59e876c8081f3346e30d"
+    },
+    {
+      "bundle_id": "skyshot-wide-lgq-2026.10.17.2",
+      "kind": "index",
+      "variant": "wide-lgq",
+      "archive": "skyshot-wide-lgq-2026.10.17.2.tar.gz",
+      "bytes": 16574921,
+      "sha256": "ef9b7a7ae9f24597558303b81ae977715852499403141bbbb93ee0f5eb2dad23",
+      "manifest": "skyshot-wide-lgq-2026.10.17.2.bundle.json",
+      "manifest_sha256": "08bb24d43a1637ac2d83db80a1e1f3c4610d962943db6f259a030d09c59f1a46",
+      "coder_sha256": "6f11160851442136473cfcfaf185ac1a264c0a90202b59e876c8081f3346e30d"
+    },
+    {
+      "bundle_id": "skyshot-full-v1-2026.10.17.2",
+      "kind": "index",
+      "variant": "full-v1",
+      "archive": "skyshot-full-v1-2026.10.17.2.tar.gz",
+      "bytes": 837017690,
+      "sha256": "b15feccff2de2b867f46fd92044f939bff44cb55dc229dabc677fa5e67fb6fe8",
+      "manifest": "skyshot-full-v1-2026.10.17.2.bundle.json",
+      "manifest_sha256": "79b478880f0d4ece769591ea36ff845acacfd96d458caa8a394f95d675a4c032",
+      "coder_sha256": null
+    },
+    {
+      "bundle_id": "skyshot-lgq-gd-2026.10.17.2",
+      "kind": "model",
+      "variant": "model",
+      "archive": "skyshot-lgq-gd-2026.10.17.2.tar.gz",
+      "bytes": 247648,
+      "sha256": "b45b610062682468aa3b717bfe2e09e4ef5acee325cbda938b705239bf07c95c",
+      "manifest": "skyshot-lgq-gd-2026.10.17.2.bundle.json",
+      "manifest_sha256": "84f81e029718533ee1f1d16a9a626be763c93231f8c97371c68f8ecb5bfa4a34",
+      "coder_sha256": "6f11160851442136473cfcfaf185ac1a264c0a90202b59e876c8081f3346e30d"
+    }
+  ],
+  "presets": {
+    "full": {
+      "index": "skyshot-full-lgq-2026.10.17.2"
+    },
+    "full-deep": {
+      "index": "skyshot-full-lgq-2026.10.17.2",
+      "index-deep": "skyshot-deep-lgq-2026.10.17.2"
+    },
+    "complete": {
+      "index": "skyshot-full-lgq-2026.10.17.2",
+      "index-deep": "skyshot-deep-lgq-2026.10.17.2",
+      "index-phone": "skyshot-wide-lgq-2026.10.17.2"
+    },
+    "handcrafted": {
+      "index-v1": "skyshot-full-v1-2026.10.17.2"
+    },
+    "model": {
+      "model": "skyshot-lgq-gd-2026.10.17.2"
+    }
+  },
+  "qualification": {
+    "file": "QUALIFICATION.json",
+    "sha256": "ae50901dab12392f5376a10ee68c7bd1f92a516d538bcf17987b503d7403b2fc"
+  },
+  "base_url": "https://skyshot.app/downloads/releases/2026.10.17.2/"
+}
