@@ -2,9 +2,9 @@
 
 **Turn a view of the stars into a live map of the sky.**
 
-## [Try Skyshot live → skyshot.app](https://skyshot.app)
+## [Open the Skyshot web app → skyshot.app/app](https://skyshot.app/app)
 
-**Experience Skyshot in your browser with the live web demo.**
+**Open the Skyshot web app and solve your images in the browser.**
 
 **[Download ready-to-use indexes → skyshot.app/downloads](https://skyshot.app/downloads/)** — Full learned is recommended; DEEP is optional.
 
@@ -14,9 +14,9 @@ Skyshot is an open-source **blind plate-solving engine built for millisecond-sca
 
 Created by **Adam Jesionkiewicz**. Available here as a **Rust library and CLI**, with source code, research papers and examples you can build on.
 
-The live web demo and video demonstrate the broader Skyshot project. This repository contains the engine and developer tools; the web application and visual overlays are separate.
+The web app and video show the broader Skyshot project. This repository contains the engine and developer tools; the web application and visual overlays are separate.
 
-[![Watch the Skyshot demo on YouTube](https://img.youtube.com/vi/lBq3xXwquJM/hqdefault.jpg)](https://youtu.be/lBq3xXwquJM)
+[![Watch Skyshot in action on YouTube](https://img.youtube.com/vi/lBq3xXwquJM/hqdefault.jpg)](https://youtu.be/lBq3xXwquJM)
 
 ## What changes when the sky can be solved in milliseconds
 
