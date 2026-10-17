@@ -71,6 +71,35 @@ Python nor the original development repository.
 | `handcrafted` | Full handcrafted as `index-v1/`, without companions | Reproducible baseline with no learned model |
 | `model` | Standalone LGQ-GD as `model/coder.f32` + `coder.json` | Build a new learned index from separately obtained D80 |
 
+### Field of view (FOV)
+
+Use the **longer side of the image**, not its diagonal. As a first choice, use
+Full learned from about **0.3° (18 arcmin)** upwards; add DEEP especially below
+that scale. These overlap: Full can solve some smaller fields, and DEEP can
+help with a larger field when its stars are too faint or dense for Full.
+
+| Index / model | Real-image checks on 17 October 2026 | Guidance |
+| --- | --- | --- |
+| Full learned | **0.24°–12.5°** | Recommended starting point |
+| Full handcrafted | **0.24°–12.5°** | Same index scales as Full learned; comparison baseline |
+| DEEP companion | **0.17°–0.50°** (about **10–30 arcmin**) | Especially useful below about **0.3°** |
+| Historical wide companion | **5.3°–12.5°**, three images | Wider fields remain experimental |
+| Standalone LGQ-GD coder | No independent FOV range | Coverage depends on the index built with it; it cannot solve an image by itself |
+
+These are the extrema of correctly solved, reference-checked images in the local
+macOS ARM64 qualification of the downloaded `2026.10.17.2` data. The Full ranges
+come from the 90-image full-only blind comparison (86 solved per arm); DEEP's
+range comes from the five DEEP solutions in the complete CLI run, which allowed
+FITS hints. The separate explicit-DEEP check covered three fields from 0.17°
+to 0.24°. This is the existing positive-image corpus, not an independent holdout.
+Raw images and per-image references remain private.
+
+The ranges describe tested images, **not hard coverage limits or a guarantee**
+for every field between them. Star density, detectable star count, image quality
+and distortion also matter. The default main search permits 0.15°–75° and the
+DEEP search 0.03°–0.5°; these are search bounds in the engine, not measured
+capabilities of every distributed index.
+
 Exact archive sizes, SHA256, bundle IDs and coder identities are in `release.json`.
 Allow space for both archives and unpacked data. Full learned runtime files are
 about 0.88 GB; DEEP about 4.33 GB; wide about 0.022 GB; handcrafted full about
