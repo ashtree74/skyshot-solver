@@ -10,6 +10,10 @@ Code contributions are made under Apache License 2.0. Add a `Signed-off-by` line
 
 The source tree must remain independent of the author's private checkout. No web UI, server accounts, product activation, production credentials or full-sky index binaries belong here.
 
+Website templates, styles, navigation, hosting configuration and deployment
+scripts are maintained separately. Keep data installers, manifests, developer
+instructions and links to the hosted downloads in this repository.
+
 Do not synchronize agent instruction files (`AGENTS.md`, `agents.md`,
 `CLAUDE.md`, `claud.md` or case variants), private tool configuration or source
 Git history. Every selective import needs source revision and original hashes;

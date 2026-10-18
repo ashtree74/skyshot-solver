@@ -2,6 +2,14 @@
 
 Decyzja zakresowa z 17 października 2026: `skyshot-solver` jest samodzielnym repo silnika i narzędzi developerskich. Obecny projekt aplikacyjny pozostaje bez zmian. Ten zakres zastępuje wcześniejszą koncepcję kopiowania całej aplikacji do tego publicznego repo.
 
+## Granica repozytorium — 18 października 2026
+
+Kod strony, szablony, style, nawigacja i konfiguracja hostingu są utrzymywane
+oddzielnie od publicznego solvera. W repo pozostają biblioteka, CLI, testy,
+narzędzia przygotowania i instalacji danych, manifesty, dokumentacja oraz linki
+do aplikacji i Downloads. Nie należy dodawać tu plików witryny ani instrukcji
+agentowych. Ta granica obowiązuje również przy aktualizacji dystrybucji danych.
+
 ## Aktualizacja wykonania — 17 października 2026
 
 **Zakończony etap: publiczne Downloads.** Autor polecił publikację paczek na
